@@ -10,7 +10,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="mt-10">
-                <h2 className="text-lg md:text-3xl px-2 py-3 rounded-lg text-[#310E60] bg-[#FD96B1] lg:text-3xl font-medium mb-3 ">Our upcoming event</h2>
+                <h2 className="text-lg mx-auto lg:w-2/3 md:text-3xl px-2 py-1 text-[#310E60] border-b-2 border-[#FD96B1] rounded-b-lg lg:text-3xl font-medium mb-3 ">Our upcoming <span className="text-[#f17092]">event</span></h2>
                 <div className="carousel lg:w-2/3 lg:h-[400px]">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src="/src/assets/DigitalMarketing.png" className="w-full" />
