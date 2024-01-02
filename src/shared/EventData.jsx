@@ -15,12 +15,17 @@ import PropTypes from 'prop-types';
 
 const EventData = ({ eventData }) => {
     // console.log(eventData);
-    const { img, date, time, duration, location, totalCost, costPerPerson, title, rating } = eventData;
+    const { img, date, time, duration, location, totalCost, costPerPerson, title, rating,type } = eventData;
     return (
         <div className="rounded-xl bg-base-100 shadow-xl ">
-            <div className="w-full">
+            <div className="w-full relative">
 
+                <div>
                 <img src={img} alt="Shoes" className="rounded-t-xl h-36 w-full" />
+                </div>
+                <div>
+                    <button disabled className="bottom-2 right-[165px]  absolute px-5 py-1 rounded-xl disabled:font-thin text-[10px] disabled:text-white disabled:bg-[#f17092] btn-secondary">{type}</button>
+                </div>
 
             </div>
             <div className="items-center text-center">

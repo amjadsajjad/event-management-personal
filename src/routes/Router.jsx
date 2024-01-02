@@ -3,6 +3,7 @@ import Root from "../pages/Root/Root";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import NewsArticlesRoute from "../pages/NewsArticles/NewsArticlesRoute";
 
 const router = createBrowserRouter([
     {
@@ -20,8 +21,14 @@ const router = createBrowserRouter([
                 element:<Register></Register>
             },
             {
-                paht:'/login',
+                path:'/login',
                 element:<Login></Login>
+            },
+            {
+                path:'/news-articles/:id',
+                element:<NewsArticlesRoute></NewsArticlesRoute>,
+                loader:() => fetch('/public/fakeData2.json')
+
             }
         ]
     }
