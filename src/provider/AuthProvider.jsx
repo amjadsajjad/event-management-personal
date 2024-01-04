@@ -1,37 +1,55 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import auth from "../firebase/firebase";
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({children}) => {
     const [searchCategory, setSearchCategory] = useState('')
-    const [events,setEvents] = useState([])
+    const [user, setUser] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successfullMessage, setSuccessfullMessage] = useState('');
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('fakeData.json');
-                const result = await response.json();
+    // for solving the problem of redirecting login page when refreshing the page from the protected route:
+    const [loading, setLoading] = useState(true);
 
-                setEvents(result.events);
+    const createUser = (email,password) => {
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth,email,password)
 
-            }
-            catch (error) {
-                console.log('Error fetching data:', error);
-            }
+    }
+    const signInUser = (email,password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth,email,password)
+
+    }
+    const logOut = () => {
+        return signOut(auth);
+    }
+    
+    const googleLogin = (googleProvider) => {
+        return signInWithPopup(auth,googleProvider)
+    }
+
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth,currentUser => {
+            console.log('user is observed by onAuthStateChanged',currentUser);
+            setUser(currentUser);
+            setLoading(false)
+        });
+        return () => {
+            unSubscribe()
         }
-        fetchData();
-        
-    }, [])
+    },[])
 
-    // useEffect(()=>{
-    //     fetch('fakeData.json')
-    //     .then(res => res.json())
-    //     .then(data => console.log(data.events))
-    // },[])
+    // const handleToast = () => {
+    //     toast('Your Account Logout Successfully')
+    // }
 
-    // console.log(events);
 
-    const Info ={setSearchCategory, searchCategory, events}
+    const Info ={setSearchCategory, searchCategory, user,createUser, signInUser, logOut,errorMessage,successfullMessage,setErrorMessage,setSuccessfullMessage, loading, googleLogin}
     return (
         <AuthContext.Provider value={Info}>
             {children}

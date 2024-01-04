@@ -9,6 +9,7 @@ import EventData from "../../shared/EventData";
 import { FcBusinessman } from "react-icons/fc";
 import { FcManager } from "react-icons/fc";
 import NewArticles from "../../shared/NewArticles";
+import Footer from "../../shared/Footer";
 
 
 
@@ -166,6 +167,8 @@ const Home = () => {
 
 
             </div>
+
+            <Footer></Footer>
 
 
 

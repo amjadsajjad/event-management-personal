@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import NewsArticlesRoute from "../pages/NewsArticles/NewsArticlesRoute";
+import EventsDetailsRoute from "../pages/EventsDetailsRoute/EventsDetailsRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -26,9 +28,15 @@ const router = createBrowserRouter([
             },
             {
                 path:'/news-articles/:id',
-                element:<NewsArticlesRoute></NewsArticlesRoute>,
+                element:<PrivateRoute><NewsArticlesRoute></NewsArticlesRoute></PrivateRoute>,
                 loader:() => fetch('/public/fakeData2.json')
 
+            },
+            {
+                path:'/events/:id',
+                element:<PrivateRoute><EventsDetailsRoute></EventsDetailsRoute></PrivateRoute>,
+                loader:() => fetch('/public/fakeData.json')
+                
             }
         ]
     }

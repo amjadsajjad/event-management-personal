@@ -16,8 +16,6 @@ const NewsArticlesRoute = () => {
     console.log(article);
     const { img, title, description, postDate, postTime } = article;
 
-
-
     return (
         <div>
             <div className="mb-10">
