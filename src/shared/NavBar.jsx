@@ -65,7 +65,9 @@ const NavBar = () => {
         {
             user ? <div className="lg:flex items-center gap-2 ">
 
-                <div className="">
+                <div className="lg:flex">
+                    <li><NavLink to='/profile'>Profile</NavLink></li>
+                    <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
                     <li><NavLink onClick={handleClick}>Logout</NavLink></li>
                 </div>
                 <img className="w-[50px] mt-2 lg:mt-0 mx-auto rounded-full border" src={user.photoURL} alt="" />

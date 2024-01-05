@@ -6,17 +6,19 @@ import Login from "../pages/Login/Login";
 import NewsArticlesRoute from "../pages/NewsArticles/NewsArticlesRoute";
 import EventsDetailsRoute from "../pages/EventsDetailsRoute/EventsDetailsRoute";
 import PrivateRoute from "./PrivateRoute";
+import Profile from "../pages/Profile/Profile";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Root></Root>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
                 element:<Home></Home>,
                 loader:() => fetch('/public/fakeData.json')
-
             },
             {
                 path:'/register',
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
                 element:<PrivateRoute><EventsDetailsRoute></EventsDetailsRoute></PrivateRoute>,
                 loader:() => fetch('/public/fakeData.json')
                 
+            },
+            {
+                path:'/profile',
+                element:<Profile></Profile>
             }
         ]
     }
