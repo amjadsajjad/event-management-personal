@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const NewArticles = ({ newsArticle }) => {
-    console.log(newsArticle);
+    // console.log(newsArticle);
     const { img, description, title } = newsArticle;
 
     return (
@@ -24,7 +24,7 @@ const NewArticles = ({ newsArticle }) => {
 };
 
 NewArticles.propTypes = {
-    newsArticle: PropTypes.node
+    newsArticle: PropTypes.object
 }
 
 export default NewArticles;

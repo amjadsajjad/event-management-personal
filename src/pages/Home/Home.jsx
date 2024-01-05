@@ -24,10 +24,10 @@ const Home = () => {
     const eventDatas = datas.events;
     // console.log(eventDatas);
 
-    console.log(searchCategory)
+    // console.log(searchCategory)
 
     const filterData = eventDatas.filter(event => event.type.toLowerCase().includes(searchCategory.toLowerCase()));
-    console.log(filterData);
+    // console.log(filterData)
 
     useEffect(() => {
         fetch('/public/fakeData2.json')
@@ -158,7 +158,7 @@ const Home = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto lg:w-2/3 ">
                         {
-                            newsArticles.slice(0, newsArticlesLength).map(newsArticle => <NewArticles key={newsArticle.ig} newsArticle={newsArticle}></NewArticles>)
+                            newsArticles.slice(0, newsArticlesLength).map(newsArticle => <NewArticles key={newsArticle.id} newsArticle={newsArticle}></NewArticles>)
                         }
                     </div>
                     <button onClick={() => { setNewsArticlesLength(newsArticles.length) }} className={`bg-[#f17092] ${newsArticlesLength === 5 ? 'hidden' : ''} mt-5 px-10 py-2 rounded-xl text-white`}>See All</button>

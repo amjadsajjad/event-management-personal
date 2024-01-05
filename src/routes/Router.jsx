@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:() => fetch('/public/fakeData.json')
+                loader:() => fetch('/fakeData.json')
             },
             {
                 path:'/register',
@@ -31,13 +31,13 @@ const router = createBrowserRouter([
             {
                 path:'/news-articles/:id',
                 element:<PrivateRoute><NewsArticlesRoute></NewsArticlesRoute></PrivateRoute>,
-                loader:() => fetch('/public/fakeData2.json')
+                loader:() => fetch('/fakeData2.json')
 
             },
             {
                 path:'/events/:id',
                 element:<PrivateRoute><EventsDetailsRoute></EventsDetailsRoute></PrivateRoute>,
-                loader:() => fetch('/public/fakeData.json')
+                loader:() => fetch('/fakeData.json')
                 
             },
             {
