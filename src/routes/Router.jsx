@@ -7,13 +7,11 @@ import NewsArticlesRoute from "../pages/NewsArticles/NewsArticlesRoute";
 import EventsDetailsRoute from "../pages/EventsDetailsRoute/EventsDetailsRoute";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/Profile/Profile";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Root></Root>,
-        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
