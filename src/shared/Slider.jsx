@@ -1,4 +1,4 @@
-import dgmarketing from '../../src/assets/DigitalMarketing.png';
+import dgmarketing from '/src/assets/digitalmarketing.png';
 import stemEdu from '../../src/assets/StemEducation.png';
 import masterDataScience from '../../src/assets/MasteringDataScience.png';
 import CyberSecurity from '../../src/assets/CyberSecurity.png';

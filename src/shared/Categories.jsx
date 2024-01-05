@@ -53,7 +53,7 @@ const Categories = () => {
                     </div>
                 </button>
                 <button onClick={() => { setSearchCategory('seminar') }}>
-                    <div className={` ${searchCategory === 'seminar' ? 'bg-[#f17092] text-white ' : 'bg-white'} flex tablet:flex-row flex-col lg:flex-row  mobile-s:gap-1 gap-3 items-center text-center justify-center py-3 rounded-lg`}>
+                    <div className={` ${searchCategory === 'seminar' ? 'bg-[rgb(241,112,146)] text-white ' : 'bg-white'} flex tablet:flex-row flex-col lg:flex-row  mobile-s:gap-1 gap-3 items-center text-center justify-center py-3 rounded-lg`}>
                         <TbUsersGroup></TbUsersGroup>
                         <h2 className={`text-[#310E60] ${searchCategory === 'seminar' ? 'text-white':''} mobile-s:text-[12px] tablet:text-lg`}>Seminar</h2>
 
