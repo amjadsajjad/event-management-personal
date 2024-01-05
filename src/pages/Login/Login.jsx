@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import NavBar from "../../shared/NavBar";
@@ -10,6 +10,9 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const { signInUser, errorMessage, successfullMessage, setErrorMessage, setSuccessfullMessage,googleLogin } = useContext(AuthContext);
+
+    const location = useLocation()
+    console.log(location);
 
     const handleToast = () => {
         toast('Your Account Login Successfully');
@@ -42,7 +45,7 @@ const Login = () => {
                 setSuccessfullMessage('Sign In Successfully Done!');
                 e.target.reset();
                 handleToast();
-                navigate('/');
+                navigate(location?.state ? location.state : '/')
 
             })
             .catch(error => {
