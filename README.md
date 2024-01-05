@@ -7,7 +7,7 @@
 
 
 ## 🔗 Website Live Link
-EduEvent Manager: [https://katherineoelsner.com/]( https://react-auth-assignment-aa733.web.app)
+EduEvent Manager: [https://react-auth-assignment-aa733.web.app]( https://react-auth-assignment-aa733.web.app)
 
 
 
